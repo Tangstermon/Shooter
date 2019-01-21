@@ -1,0 +1,35 @@
+ if self.health <=0:
+            self.rect.top = -500
+            highScore("high_score.txt", self.score, self.high_score)   
+        else:
+
+
+def update(self):
+        if self.down:
+            if self.left:
+                self.rect.y += self.speedy
+                self.rect.x += self.speedx
+            if self.right:
+                self.rect.y += self.speedy
+                self.rect.x -= self.speedx 
+            
+        if self.up:
+            if self.left:
+                self.rect.y -= self.speedy
+                self.rect.x += self.speedx
+            if self.right:
+                self.rect.y -= self.speedy
+                self.rect.x -= self.speedx 
+        
+        if self.rect.top < 0:
+            self.down = True
+            self.up = False
+        if self.rect.bottom > WINDOW_HEIGHT:
+            self.down = False
+            self.up = True
+        if self.rect.right > WINDOW_WIDTH:
+            self.left = True
+            self.right = False
+        if self.rect.left < 0:
+            self.right = True
+            self.left = False
